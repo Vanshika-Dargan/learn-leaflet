@@ -26,6 +26,9 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
     var map = L.map('map').setView([30.3165, 78.0322], 12);
+
+
+
     // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     //     maxZoom: 19,
     //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -34,6 +37,25 @@
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3']
 }).addTo(map);
+
+
+
+var marker = L.marker([30.3168, 78.0322]).addTo(map);
+
+var circle = L.circle([30.3040, 78.0128], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
+
+var polygon = L.polygon([
+    [30.3509, 78.0108],
+    [30.3503, 78.000],
+    [30.3000, 78.0147]
+]).addTo(map);
+
+
 </script>
 
 </html>
