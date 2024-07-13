@@ -25,7 +25,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-    var map = L.map('map').setView([30.3165, 78.0322], 12);
+    
+    var map = L.map('map').setView([30.099688081238003, 78.28385287973147], 12);
 
 
 
@@ -39,8 +40,28 @@
 }).addTo(map);
 
 
+var car = L.icon({
+    iconUrl: './car.webp',
+    iconSize: [95, 95],
+    iconAnchor: [22, 94],
+    popupAnchor: [20, -76],
+});
 
-var marker = L.marker([30.3168, 78.0322]).addTo(map);
+
+var marker = L.marker([30.099688081238003, 78.28385287973147],
+{icon: car,
+title:'I am a tooltip',
+opacity:0.5,
+riseOnHover:true,
+draggable:true,
+autoPan:true,
+}
+
+).addTo(map);
+marker.bindPopup("<strong>Thar</strong><br>Vanshika ki gadi").openPopup();
+
+
+
 
 var circle = L.circle([30.3040, 78.0128], {
     color: 'red',
@@ -54,6 +75,10 @@ var polygon = L.polygon([
     [30.3503, 78.000],
     [30.3000, 78.0147]
 ]).addTo(map);
+
+
+circle.bindPopup("Wtf! I didn't even know I am a circle, hehe");
+polygon.bindPopup("Hey from polygon!");
 
 
 </script>
