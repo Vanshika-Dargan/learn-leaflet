@@ -50,15 +50,13 @@ var car = L.icon({
 
 var marker = L.marker([30.099688081238003, 78.28385287973147],
 {icon: car,
-title:'I am a tooltip',
-opacity:0.5,
-riseOnHover:true,
-draggable:true,
+title:'I am a moving car',
+opacity:1,
 autoPan:true,
 }
 
 ).addTo(map);
-marker.bindPopup("<strong>Thar</strong><br>Vanshika ki gadi").openPopup();
+marker.bindPopup("Lo chli mai").openPopup();
 
 
 
@@ -79,6 +77,31 @@ var polygon = L.polygon([
 
 circle.bindPopup("Wtf! I didn't even know I am a circle, hehe");
 polygon.bindPopup("Hey from polygon!");
+
+
+function moveCar(){
+    const latlang=[
+    [30.099688081238003, 78.28385287973147],
+    [30.099688081238003, 78.29385287973147],
+    [30.099688081238003, 78.30385287973147],
+    [30.099688081238003, 78.31385287973147],
+    [30.099688081238003, 78.32385287973147],
+    [30.099688081238003, 78.34385287973147],
+    [30.099688081238003, 78.35385287973147]
+    ];
+
+    let index=0;
+
+    function animateCar(){
+        if(index<latlang.length){
+            marker.setLatLng(latlang[index]);
+            index++;
+            setTimeout(animateCar,1000);
+        }
+    }
+    animateCar();
+}
+moveCar();
 
 
 </script>
