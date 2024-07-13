@@ -101,8 +101,20 @@ function moveCar(){
     }
     animateCar();
 }
-moveCar();
+//moveCar();
 
+let angle = 0;
+const radius = 0.1;
+function moveCarInf(){
+    const lat = 30.099688081238003 + radius * Math.sin(angle);
+    const lng = 78.28385287973147 + radius * Math.cos(angle);
+    marker.setLatLng([lat, lng]);
+
+    // Update angle for the next position
+    angle += 0.01;
+    setTimeout(moveCarInf,50);
+}
+//moveCarInf();
 
 </script>
 
